@@ -3,7 +3,7 @@
     "name": "Seamless Containers",
     "version": "1.0.0",
     "incognito": "not_allowed",
-    "description": "Makes switching containers seamless.",
+    "description": "Makes switching containers seamless via automatic container opening and additional hotkeys.",
     "homepage_url": "https://github.com/rpbritton/seamless-containers#readme",
     "icons": {
         "64": "icon.png"

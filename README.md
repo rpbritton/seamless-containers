@@ -1,4 +1,7 @@
 # Seamless Containers
+[Install here!](https://addons.mozilla.org/en-US/firefox/addon/seamless-containers/)
+
+## Features
 * Open new tabs and windows in the most-recently-used cookie container.
 * Reopen tabs with a hotkey (by default `Ctrl+Alt+[0-9]`).
 * Open a new tab in a specific container (`Ctrl+Shift+[0-9]`).
