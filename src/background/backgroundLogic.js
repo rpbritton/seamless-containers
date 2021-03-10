@@ -34,7 +34,13 @@ const backgroundLogic = {
         };
 
         return Promise.all([
-            browser.tabs.create(replacementTab),
+            browser.tabs.create(replacementTab).then(newTab => {
+                return browser.tabs.update(newTab.id, {
+                    active: tab.active,
+                    highlighted: tab.highlighted,
+                    muted: tab.muted
+                })
+            }),
             browser.tabs.remove(tab.id)
         ])
     },
@@ -46,10 +52,12 @@ const backgroundLogic = {
             if (command === key) {
                 browser.tabs.create({ cookieStoreId });
             } else if (command === "re" + key) {
-                browser.tabs.query({ active: true, windowId: browser.windows.WINDOW_ID_CURRENT })
+                browser.tabs.query({ highlighted: true, windowId: browser.windows.WINDOW_ID_CURRENT })
                     .then(tabs => {
                         backgroundLogic.lastCookieStoreId = cookieStoreId;
-                        backgroundLogic.replaceTab(tabs[0], cookieStoreId);
+                        for (tab of tabs) {
+                            backgroundLogic.replaceTab(tab, cookieStoreId);
+                        }
                     });
             }
         }
@@ -77,7 +85,6 @@ const backgroundLogic = {
         browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             if (tab.cookieStoreId === backgroundLogic.DEFAULT_COOKIE_STORE_ID) {
                 if ("status" in changeInfo && changeInfo.status == "loading" && "url" in changeInfo) {
-                    console.log(changeInfo)
                     backgroundLogic.replaceTab(tab, backgroundLogic.lastCookieStoreId);
                 }
             }

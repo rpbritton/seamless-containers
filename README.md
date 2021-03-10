@@ -8,7 +8,7 @@
 * Meant to work seamlessly with the [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) addon.
 
 ## Good to knows
-* The basis of this extension is the [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) addon.
+* The basis of the code is from the [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) addon, which I striped away at before adding the additional functionality.
 * While several other addons can be combined to create an overall similar behavior, such as [Conex](https://addons.mozilla.org/en-US/firefox/addon/conex/) for new tabs and [Container Hotkeys](https://addons.mozilla.org/en-US/firefox/addon/container-hotkeys/) for container hotkeys, they don't create this exact behavior (new windows open in the same container and reopen in a container works on a new tab page, respectively).
 * This extension works under the assumption every tab should be in a container of sorts. New tabs will be forced into a container.
 * The default new tab shortcuts conflict with those of the [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) extension, which this extension is designed to work with. It is recommended to remove the shortcuts of the [Firefox Multi-Account Containers](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) addon by navigating to `about:addons`, clicking the gear next to manage your extensions, and under `Manage Extension Shortcuts`.
